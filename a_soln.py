@@ -21,7 +21,7 @@ with open(INPUT, "r") as f:
 B, L, D = (int(x) for x in lines[0].split(" ")) # number of books, libraries, and days, respectively
 S = [int(x) for x in lines[1].split(" ")] # list of book scores (books 0 to B-1)
 
-libraries = []
+libraries = set()
 i = 2
 while i < len(lines):
     # read in info on each of the L libraries 0 to L-1
@@ -35,7 +35,7 @@ while i < len(lines):
     line = lines[i]
     library.book_ids = {int(x) for x in line.split(" ")}
     
-    libraries.append(library)
+    libraries.add(library)
 
     i += 1
     
