@@ -44,3 +44,7 @@ def solution(libraries, D, S):
         
     return(A, Output)
         
+def make_output(A, Output, filename):
+    with open(filename, "w") as file:
+        file.write(A)
+    
