@@ -29,7 +29,7 @@ while i < len(lines):
     library = Library()
     library.num_books, library.signup_days, library.shipping_per_day = (
         int(x) for x in line.split(" "))
-    library.id = (i - 2) / 2
+    library.id = (i - 2) // 2
     
     i += 1
     line = lines[i]
