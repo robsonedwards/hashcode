@@ -1,10 +1,12 @@
 #python 3.6
 
 class Library:
-    num_books = 0
-    signup_days = 0
-    shipping_per_day = 0
-    book_ids = set()
+    def __init__(self, num_books = 0, signup_days = 0, shipping_per_day = 0,
+                 book_ids = set()):
+        self.num_books = num_books
+        self.signup_days = signup_days
+        self.shipping_per_day = shipping_per_day
+        self.book_ids = book_ids
 
 INPUT = "a_example.txt"
 
@@ -27,12 +29,13 @@ while i < len(lines):
     
     i += 1
     line = lines[i]
-    for book in line.split(" "):
-        library.book_ids.add(book)
+    library.book_ids = set(line.split(" "))
     
     libraries.append(library)
 
     i += 1
     
 print(B, L, D, S, libraries)
-
+for library in libraries:
+    print(library.num_books, library.signup_days, library.shipping_per_day,
+          library.book_ids)
