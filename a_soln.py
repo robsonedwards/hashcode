@@ -12,7 +12,7 @@ INPUT = "a_example.txt"
 with open(INPUT, "r") as f:
     lines = f.read().splitlines() # removes \n, probably better way to do this
 
-B, L, D = lines[0].split(" ") # number of books, libraries, and days, respectively
+B, L, D = (int(x) for x in lines[0].split(" ")) # number of books, libraries, and days, respectively
 S = lines[1].split(" ") # list of book scores (books 0 to B-1)
 
 libraries = []
@@ -25,23 +25,21 @@ while i < len(lines):
     
     i += 1
     line = lines[i]
-    library.book_ids = set(line.split(" "))
+    library.book_ids = {int(x) for x in line.split(" ")}
     
     libraries.append(library)
 
     i += 1
     
 # debugging
-print("B: ", B, ", D: ", D, ", S: ", S)
+print("B: ", B, ", D: ", D, ", S: ", S, sep = "")
 for library in libraries:
     print(library.num_books, library.signup_days, library.shipping_per_day,
           library.book_ids)
 
-books_to_libraries = {}
+books_to_libraries = [set()] * B
 for library in libraries:
     for book in library.book_ids: 
-        if books_to_libraries.get(book) is None:
-            books_to_libraries[book] = set()
         books_to_libraries[book].add(library)
 
 print(books_to_libraries)
