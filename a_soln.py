@@ -6,10 +6,15 @@ class Library:
         self.signup_days = signup_days
         self.shipping_per_day = shipping_per_day
         self.book_ids = book_ids
-        self.id
+        self.id = id
 
     def __str__(self):
-        return "Library: TODO"
+        return (
+            "Library: { id: " + str(self.id) + ", num_books: " + 
+            str(self.num_books) + ", signup_days: " + str(self.signup_days) + 
+            ", shipping_per_day: " + str(self.shipping_per_day), ", book_ids: " + 
+            self.book_ids
+        )
 
 INPUT = "a_example.txt"
 
@@ -40,5 +45,4 @@ while i < len(lines):
 # debugging
 print("B: ", B, ", D: ", D, ", S: ", S, sep = "")
 for library in libraries:
-    print(library.num_books, library.signup_days, library.shipping_per_day,
-          library.book_ids, library.id)
+    print(library)
