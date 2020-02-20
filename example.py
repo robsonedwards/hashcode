@@ -26,7 +26,9 @@ def solution(libraries, D, S):
         # update output
         A += 1 # increment library counter
         Output.append([lib.id]) # append output
-        scanned_books = sorted(list(lib.book_ids), key = lambda id: S[id])[:min((D-lib.signup_days)*lib.shipping_per_day, len(lib.book_ids))]
+        
+        scanned_books = sorted([id for id in list(lib.book_ids) if S[id]!=0], key = lambda id: S[id])[:min((D-lib.signup_days)*lib.shipping_per_day, len(lib.book_ids))]
+        
         # update book scores
         for book in scanned_books: 
             S[book] = 0
