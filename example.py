@@ -48,7 +48,7 @@ def solution(libraries, D, S):
         
 def make_output(A, Output, filename):
     with open(filename, "w") as file:
-        file.write(A)
+        file.write(str(A))
         for section in Output:
             file.write(str(section[0]) + " " + str(section[1]))
             file.write("".join([str(x) for x in section[2]]))
