@@ -36,10 +36,3 @@ print("B: ", B, ", D: ", D, ", S: ", S, sep = "")
 for library in libraries:
     print(library.num_books, library.signup_days, library.shipping_per_day,
           library.book_ids)
-
-books_to_libraries = [set()] * B
-for library in libraries:
-    for book in library.book_ids: 
-        books_to_libraries[book].add(library)
-
-print(books_to_libraries)
