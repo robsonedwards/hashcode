@@ -21,7 +21,8 @@ while i < len(lines):
     # read in info on each of the L libraries 0 to L-1
     line = lines[i]
     library = Library()
-    library.num_books, library.signup_days, library.shipping_per_day = line.split(" ")
+    library.num_books, library.signup_days, library.shipping_per_day = (
+        int(x) for x in line.split(" "))
     
     i += 1
     line = lines[i]
