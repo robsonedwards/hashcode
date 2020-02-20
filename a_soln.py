@@ -13,7 +13,7 @@ with open(INPUT, "r") as f:
     lines = f.read().splitlines() # removes \n, probably better way to do this
 
 B, L, D = (int(x) for x in lines[0].split(" ")) # number of books, libraries, and days, respectively
-S = lines[1].split(" ") # list of book scores (books 0 to B-1)
+S = [int(x) for x in lines[1].split(" ")] # list of book scores (books 0 to B-1)
 
 libraries = []
 i = 2
