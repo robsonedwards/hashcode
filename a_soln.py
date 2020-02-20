@@ -13,7 +13,7 @@ with open(INPUT, "r") as f:
     lines = f.read().splitlines() # removes \n, probably better way to do this
 
 B, L, D = lines[0].split(" ") # number of books, libraries, and days, respectively
-S = lines[1].split(" ") # array of book scores (books 0 to B-1)
+S = lines[1].split(" ") # list of book scores (books 0 to B-1)
 
 libraries = []
 i = 2
@@ -32,7 +32,16 @@ while i < len(lines):
     i += 1
     
 # debugging
-print(B, L, D, S, libraries)
+print("B: ", B, ", D: ", D, ", S: ", S)
 for library in libraries:
     print(library.num_books, library.signup_days, library.shipping_per_day,
           library.book_ids)
+
+books_to_libraries = {}
+for library in libraries:
+    for book in library.book_ids: 
+        if books_to_libraries.get(book) is None:
+            books_to_libraries[book] = set()
+        books_to_libraries[book].add(library)
+
+print(books_to_libraries)
