@@ -48,8 +48,8 @@ def solution(libraries, D, S):
         
 def make_output(A, Output, filename):
     with open(filename, "w") as file:
-        file.write(str(A))
+        file.write(str(A) + "\n")
         for section in Output:
-            file.write(str(section[0]) + " " + str(section[1]))
-            file.write("".join([str(x) for x in section[2]]))
+            file.write(str(section[0]) + " " + str(section[1]) + "\n")
+            file.write("".join([str(x) for x in section[2]])+"\n")
         file.close()
