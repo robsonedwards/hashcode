@@ -9,12 +9,9 @@ class Library:
         self.id = id
 
     def __str__(self):
-        return (
-            "Library: { id: " + str(self.id) + ", num_books: " + 
-            str(self.num_books) + ", signup_days: " + str(self.signup_days) + 
-            ", shipping_per_day: " + str(self.shipping_per_day), ", book_ids: " + 
-            self.book_ids
-        )
+        return "Library: id: {}, num_books: {}, signup_days: {}, "\
+         "shipping_per_day: {}, book_ids: {}".format(self.id, self.num_books, 
+         self.signup_days, self.shipping_per_day, self.book_ids)
 
 INPUT = "a_example.txt"
 
