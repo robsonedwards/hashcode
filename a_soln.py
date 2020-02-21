@@ -13,7 +13,7 @@ class Library:
          "shipping_per_day: {}, book_ids: {}".format(self.id, self.num_books, 
          self.signup_days, self.shipping_per_day, self.book_ids)
 
-INPUT = "a_example.txt"
+INPUT = "b_read_on.txt"
 
 with open(INPUT, "r") as f:
     lines = f.read().splitlines() # removes \n, probably better way to do this
@@ -27,6 +27,7 @@ while i < len(lines):
     # read in info on each of the L libraries 0 to L-1
     line = lines[i]
     library = Library()
+    print(line.split(" "))
     library.num_books, library.signup_days, library.shipping_per_day = (
         int(x) for x in line.split(" "))
     library.id = (i - 2) // 2
